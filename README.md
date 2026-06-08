@@ -23,8 +23,5 @@ Pages rebuilds within ~30 s.
 
 ## Placeholders to replace before launch
 
-- `privacy@rekko.app` and `contact@rekko.app` are used as contact
-  addresses. Swap them with the address that actually receives mail
-  before publishing the app to the App Store.
 - The "Last updated" date in each `privacy.html` should match the date
   the policy was last reviewed.

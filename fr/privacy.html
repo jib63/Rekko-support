@@ -35,7 +35,7 @@
         <p>
             Toute question relative à cette politique ou à vos données peut nous être
             adressée à
-            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>.
+            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>.
         </p>
 
         <h2>2. Quelles données Rekko manipule</h2>
@@ -142,10 +142,19 @@
             Aussi longtemps que votre compte existe. Lorsque vous supprimez votre compte
             depuis les réglages Rekko, votre base de données locale est effacée, la clé
             App Attest liée à votre installation est invalidée, vos zones CloudKit
-            (partagées et privées) sont supprimées, et nous demandons à Apple de
-            révoquer l'autorisation Se connecter avec Apple. Les membres des cercles
-            dont vous étiez propriétaire sont notifiés que le partage a disparu et le
-            signet s'efface de leur appareil.
+            (partagées et privées) sont supprimées, et votre identifiant de connexion
+            est effacé de votre trousseau iCloud. Les membres des cercles dont vous étiez
+            propriétaire sont notifiés que le partage a disparu et le signet s'efface de
+            leur appareil.
+        </p>
+        <p>
+            Rekko ne stocke aucun <em>token</em> Se connecter avec Apple (seul
+            l'identifiant opaque <code>userIdentifier</code> est conservé sur votre
+            appareil, dans le trousseau local) : il n'y a donc aucun token à révoquer
+            côté serveur. Si vous souhaitez en plus invalider l'autorisation Se
+            connecter avec Apple côté Apple, vous pouvez le faire à tout moment depuis
+            <strong>Réglages iOS → votre nom → Mot de passe et sécurité → Apps utilisant
+            Apple ID → Rekko → Cesser d'utiliser Apple ID</strong>.
         </p>
 
         <h2>7. Vos droits RGPD</h2>
@@ -166,8 +175,8 @@
             <li>
                 <strong>Droit à l'effacement.</strong> L'action « Supprimer mon compte »
                 dans les réglages efface toute trace de vos données sur votre appareil
-                et sur iCloud, et demande à Apple de révoquer votre jeton Se connecter
-                avec Apple.
+                et dans vos zones iCloud Rekko. Voir §6 pour les détails concernant
+                l'autorisation Se connecter avec Apple.
             </li>
             <li>
                 <strong>Droit d'opposition et retrait du consentement.</strong> Vous
@@ -183,7 +192,7 @@
         <p>
             Pour exercer l'un de ces droits, y compris une demande manuelle lorsque les
             flux in-app ne suffisent pas, écrivez à
-            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>. Nous vous
+            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>. Nous vous
             répondrons sous 30 jours au plus.
         </p>
 

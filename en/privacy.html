@@ -32,7 +32,7 @@
         </p>
         <p>
             Any question about this policy or your data can be sent to
-            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>.
+            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>.
         </p>
 
         <h2>2. What data Rekko handles</h2>
@@ -128,9 +128,18 @@
             For as long as your account exists. When you delete your account from the
             Rekko settings, your local database is wiped, the App Attest key tied to
             your installation is invalidated, your CloudKit zones (shared and private)
-            are torn down, and Apple is asked to revoke the Sign in with Apple
-            authorisation. Members of circles you owned are notified that the share is
-            gone and the bookmark disappears from their device.
+            are torn down, and your sign-in identifier is cleared from the keychain.
+            Members of circles you owned are notified that the share is gone and the
+            bookmark disappears from their device.
+        </p>
+        <p>
+            Because Rekko never stores a Sign in with Apple <em>token</em> (we keep
+            only the opaque <code>userIdentifier</code> on your device, in your local
+            keychain), there is no token for us to revoke server-side. If you want to
+            additionally invalidate the Sign in with Apple authorisation on Apple's
+            side, you can do so at any time from <strong>iOS Settings → your name →
+            Password &amp; Security → Apps Using Apple ID → Rekko → Stop using Apple
+            ID</strong>.
         </p>
 
         <h2>7. Your rights under GDPR</h2>
@@ -149,8 +158,9 @@
             </li>
             <li>
                 <strong>Right to erasure.</strong> The "Delete my account" action in
-                Settings wipes every trace of your data on your device and on iCloud, and
-                asks Apple to revoke your Sign in with Apple token.
+                Settings wipes every trace of your data on your device and in your
+                iCloud Rekko zones. See §6 for the details on the Sign in with Apple
+                authorisation.
             </li>
             <li>
                 <strong>Right to object &amp; withdraw consent.</strong> Signing out of
@@ -165,7 +175,7 @@
         <p>
             To exercise any of these rights, including a manual data request when the
             in-app flows are not enough, write to
-            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>. We will reply
+            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>. We will reply
             within 30 days at most.
         </p>
 
