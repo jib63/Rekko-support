@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Politique de confidentialité de l'app Rekko — comment vos données sont traitées.">
+    <title>Politique de confidentialité — Rekko</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="wordmark">rekko<span class="dot">.</span></a>
+        <p class="lang-switch">Français · <a href="../en/privacy.html">Read in English</a></p>
+
+        <h1>Politique de confidentialité</h1>
+        <p class="subtitle">Dernière mise à jour : 8 juin 2026</p>
+
+        <p>
+            Rekko repose sur une promesse simple : <strong>vos données vous
+            appartiennent</strong>. Ce que vous regardez, ce que vous notez, les amis
+            avec qui vous partagez — rien de tout cela ne vit sur nos serveurs. Cette
+            page vous explique, en langage clair, quelles données Rekko manipule, où
+            elles vont, et comment vous pouvez les contrôler ou les supprimer à tout
+            moment.
+        </p>
+
+        <hr>
+
+        <h2>1. Qui est responsable de vos données ?</h2>
+        <p>
+            Rekko est développée et exploitée par Jean-Baptiste Meyer (« nous »), en
+            qualité de responsable du traitement au sens du Règlement général sur la
+            protection des données (RGPD).
+        </p>
+        <p>
+            Toute question relative à cette politique ou à vos données peut nous être
+            adressée à
+            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>.
+        </p>
+
+        <h2>2. Quelles données Rekko manipule</h2>
+        <p>
+            Rekko ne collecte que ce qui est strictement nécessaire au fonctionnement
+            de l'application. Concrètement :
+        </p>
+        <ul>
+            <li>
+                <strong>Identifiant de connexion.</strong> Quand vous vous connectez avec
+                <em>Se connecter avec Apple</em>, Apple fournit à Rekko un
+                <code>userIdentifier</code> opaque et stable. Nous ne stockons
+                <strong>pas</strong> votre véritable identifiant Apple, ni votre nom,
+                ni votre adresse e-mail. L'e-mail qu'Apple propose de partager est
+                intentionnellement ignoré.
+            </li>
+            <li>
+                <strong>Contenu de profil que vous créez :</strong> le pseudo que vous
+                choisissez, la photo d'avatar que vous chargez, et les genres préférés
+                que vous sélectionnez.
+            </li>
+            <li>
+                <strong>Contenu du journal :</strong> les séries et films que vous
+                suivez, leur statut (à voir / en cours / vu / abandonné), vos notes et
+                vos commentaires éventuels.
+            </li>
+            <li>
+                <strong>Cercles et recommandations :</strong> les cercles privés que
+                vous créez ou rejoignez, leur liste de membres (limitée aux personnes
+                que vous avez explicitement invitées), et les recommandations / notes
+                que vous y partagez.
+            </li>
+            <li>
+                <strong>Attestation anonyme de l'appareil.</strong> Rekko utilise le
+                framework <em>App Attest</em> d'Apple pour prouver que les requêtes
+                envoyées à son relais en lecture seule proviennent d'une copie
+                légitime de l'application. App Attest ne transmet aucune information
+                personnelle.
+            </li>
+        </ul>
+        <p>
+            Rekko ne collecte <strong>pas</strong> : vos contacts, votre position,
+            votre micro, votre historique de navigation, votre identifiant publicitaire,
+            ni aucune télémétrie tierce. Aucun SDK de tracking n'est embarqué.
+        </p>
+
+        <h2>3. Où vos données sont stockées</h2>
+        <p>
+            Les données personnelles sont stockées dans <strong>votre propre espace
+            iCloud privé</strong>, via le framework CloudKit d'Apple. Nous n'hébergeons
+            pas de copie sur un serveur. En détail :
+        </p>
+        <ul>
+            <li>
+                Votre profil, votre journal et les cercles que vous avez créés vivent
+                dans votre <em>base de données privée iCloud</em>, accessible
+                uniquement par votre compte Apple.
+            </li>
+            <li>
+                Les cercles partagés utilisent le mécanisme <em>CKShare</em> d'Apple :
+                les données sont répliquées uniquement vers les comptes iCloud que vous
+                avez explicitement invités.
+            </li>
+            <li>
+                Un relais en lecture seule, que nous opérons, sert à signer
+                cryptographiquement les requêtes envoyées à TMDB (voir §4). Il ne stocke
+                aucune de vos données et ne conserve que des traces techniques de très
+                courte durée à des fins de lutte contre la fraude.
+            </li>
+        </ul>
+
+        <h2>4. Tiers impliqués</h2>
+        <ul>
+            <li>
+                <strong>Apple Inc.</strong> traite vos données iCloud sur ses serveurs,
+                conformément à
+                <a href="https://www.apple.com/fr/legal/privacy/">la politique de
+                confidentialité d'Apple</a>. L'infrastructure CloudKit qui héberge vos
+                cercles, votre profil et votre journal appartient à Apple, pas à nous.
+            </li>
+            <li>
+                <strong>The Movie Database (TMDB).</strong> Rekko récupère les
+                métadonnées des séries et films (titres, affiches, synopsis, casting)
+                depuis
+                <a href="https://www.themoviedb.org/">TMDB</a>. La requête envoyée à TMDB
+                ne contient que l'identifiant de la fiche consultée ; aucun identifiant
+                Rekko personnel n'est transmis. TMDB est la source du catalogue et n'est
+                pas affilié à Rekko.
+            </li>
+        </ul>
+
+        <h2>5. Base légale</h2>
+        <p>
+            L'ensemble des traitements de données personnelles est fondé sur votre
+            <strong>consentement</strong> (RGPD art. 6.1.a) — donné lors de la
+            connexion et de la création de votre profil — et sur l'<strong>exécution
+            d'un contrat</strong> (art. 6.1.b) pour les fonctionnalités que vous
+            sollicitez activement (création d'un cercle, envoi d'une recommandation,
+            etc.).
+        </p>
+
+        <h2>6. Durée de conservation</h2>
+        <p>
+            Aussi longtemps que votre compte existe. Lorsque vous supprimez votre compte
+            depuis les réglages Rekko, votre base de données locale est effacée, la clé
+            App Attest liée à votre installation est invalidée, vos zones CloudKit
+            (partagées et privées) sont supprimées, et nous demandons à Apple de
+            révoquer l'autorisation Se connecter avec Apple. Les membres des cercles
+            dont vous étiez propriétaire sont notifiés que le partage a disparu et le
+            signet s'efface de leur appareil.
+        </p>
+
+        <h2>7. Vos droits RGPD</h2>
+        <p>Vous pouvez exercer à tout moment les droits suivants :</p>
+        <ul>
+            <li>
+                <strong>Droit d'accès et à la portabilité.</strong> Rekko propose une
+                action « Exporter mes données » dans l'app, qui produit un fichier JSON
+                structuré contenant votre profil, votre journal, vos cercles et vos
+                recommandations. Vous pouvez l'enregistrer dans Fichiers, l'envoyer par
+                mail, ou l'ouvrir dans n'importe quel outil.
+            </li>
+            <li>
+                <strong>Droit de rectification.</strong> Vous pouvez modifier votre
+                pseudo, votre avatar, vos genres préférés, et le contenu de toute note
+                ou recommandation directement dans l'app.
+            </li>
+            <li>
+                <strong>Droit à l'effacement.</strong> L'action « Supprimer mon compte »
+                dans les réglages efface toute trace de vos données sur votre appareil
+                et sur iCloud, et demande à Apple de révoquer votre jeton Se connecter
+                avec Apple.
+            </li>
+            <li>
+                <strong>Droit d'opposition et retrait du consentement.</strong> Vous
+                déconnecter de l'app interrompt tout traitement de notre côté ;
+                supprimer le compte rend cette opération définitive.
+            </li>
+            <li>
+                <strong>Droit d'introduire une réclamation</strong> auprès d'une
+                autorité de contrôle (en France : la CNIL,
+                <a href="https://www.cnil.fr/">cnil.fr</a>).
+            </li>
+        </ul>
+        <p>
+            Pour exercer l'un de ces droits, y compris une demande manuelle lorsque les
+            flux in-app ne suffisent pas, écrivez à
+            <a href="mailto:privacy@rekko.app">privacy@rekko.app</a>. Nous vous
+            répondrons sous 30 jours au plus.
+        </p>
+
+        <h2>8. Permissions que Rekko peut demander</h2>
+        <ul>
+            <li>
+                <strong>Photos (lecture seule).</strong> Uniquement lorsque vous tapez
+                sur votre avatar pour choisir une photo. L'image sélectionnée est
+                miniaturisée à 300 pt et stockée dans votre profil local.
+            </li>
+            <li>
+                <strong>Notifications.</strong> Servent à vous prévenir quand un ami
+                d'un de vos cercles vous envoie une recommandation. Vous pouvez les
+                désactiver depuis les Réglages iOS à tout moment.
+            </li>
+            <li>
+                <strong>iCloud.</strong> Indispensable pour la synchronisation des
+                cercles entre membres et entre vos appareils. Rekko ne fonctionne pas
+                sans compte iCloud connecté sur l'appareil.
+            </li>
+        </ul>
+
+        <h2>9. Enfants</h2>
+        <p>
+            Rekko ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons
+            pas sciemment de données auprès d'un enfant. Si vous pensez qu'un enfant
+            s'est inscrit, contactez-nous et nous supprimerons le compte correspondant.
+        </p>
+
+        <h2>10. Évolutions de cette politique</h2>
+        <p>
+            Cette politique peut évoluer si l'application ou le droit applicable
+            change. La date « Dernière mise à jour » en haut de cette page sera
+            actualisée, et un changement significatif sera signalé dans l'app à la
+            prochaine ouverture des Réglages.
+        </p>
+
+        <footer>
+            <p>
+                <a href="../">Retour à Rekko</a> ·
+                <a href="../en/privacy.html">Read in English</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
