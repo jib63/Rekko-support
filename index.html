@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rekko — what your circle is watching.">
-    <title>Rekko — what your circle is watching</title>
-    <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekko — What your circle is watching</title>
+<meta name="description" content="Rekko — what your circle is watching. Private, ad-free TV and movie recommendations between friends.">
+<meta name="theme-color" content="#1a1238">
+<link rel="canonical" href="https://jib63.github.io/Rekko-support/">
+<!-- No-JS / no-redirect fallback: drop to English after 1s. The
+     inline script below preempts this for everyone else. -->
+<meta http-equiv="refresh" content="1; url=en/">
+<script>
+  // Pick a locale-specific landing based on the browser's preferred
+  // languages. We only ship en + fr today, so anything that isn't
+  // unambiguously French falls back to English. Synchronous so the
+  // visual flash before the redirect is sub-frame.
+  (function () {
+    var langs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"];
+    var target = "en/";
+    for (var i = 0; i < langs.length; i++) {
+      var tag = (langs[i] || "").toLowerCase();
+      if (tag === "fr" || tag.indexOf("fr-") === 0) { target = "fr/"; break; }
+      if (tag === "en" || tag.indexOf("en-") === 0) { target = "en/"; break; }
+    }
+    location.replace(target);
+  })();
+</script>
+<style>
+  html, body { margin: 0; padding: 0; background: #1a1238; color: rgba(255,255,255,0.72); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .fallback { max-width: 480px; margin: 0 auto; padding: 80px 24px; text-align: center; line-height: 1.6; }
+  .wordmark { font-family: "Iowan Old Style", "Georgia", serif; font-weight: 900; font-size: 32px; color: #fff; letter-spacing: -0.02em; display: inline-block; margin-bottom: 24px; }
+  .wordmark .dot { color: #9b59ff; }
+  a { color: #9b59ff; text-decoration: none; border-bottom: 1px solid rgba(155, 89, 255, 0.3); }
+  a:hover { border-bottom-color: #9b59ff; }
+  p { margin: 12px 0; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <span class="wordmark">rekko<span class="dot">.</span></span>
-        <p class="subtitle" style="margin-bottom:48px;">What your circle is watching.</p>
-
-        <h2>Support &amp; legal</h2>
-
-        <h3>Privacy policy</h3>
-        <p>
-            <a href="en/privacy.html">English</a> ·
-            <a href="fr/privacy.html">Français</a>
-        </p>
-
-        <h3>Contact</h3>
-        <p>
-            For any question — privacy, support, partnership — write to
-            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>.
-        </p>
-
-        <footer>
-            <p>Rekko · Jean-Baptiste Meyer · 2026</p>
-        </footer>
-    </div>
+<div class="fallback">
+  <span class="wordmark">rekko<span class="dot">.</span></span>
+  <p>Redirecting you to your language…</p>
+  <noscript>
+    <p>
+      <a href="en/">English</a> · <a href="fr/">Français</a>
+    </p>
+  </noscript>
+</div>
 </body>
 </html>

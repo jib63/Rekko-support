@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekko — What your circle is watching</title>
+<meta name="description" content="Rekko is the private, ad-free way to share TV and movie recommendations with the people you actually watch with. No public feed. No algorithm. Just your circles.">
+<meta name="theme-color" content="#1a1238">
+<meta property="og:title" content="Rekko — What your circle is watching">
+<meta property="og:description" content="The private, ad-free way to swap TV and movie recommendations with your friends and family.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/screenshots/en/01-Home.jpg">
+<link rel="canonical" href="https://jib63.github.io/Rekko-support/en/">
+<style>
+  :root {
+    --bg: #1a1238;
+    --bg-deep: #0f0824;
+    --bg-soft: #221848;
+    --accent: #9b59ff;
+    --accent-soft: rgba(155, 89, 255, 0.18);
+    --text: #ffffff;
+    --text-soft: rgba(255, 255, 255, 0.72);
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --rule: rgba(255, 255, 255, 0.08);
+    --radius: 18px;
+    --serif: "Iowan Old Style", "Georgia", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+    background-attachment: fixed;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color 0.15s ease; }
+  a:hover { border-bottom-color: var(--accent); }
+  img { max-width: 100%; display: block; }
+
+  /* ── Nav ─────────────────────────────────────────────── */
+  nav.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    border: none;
+  }
+  .wordmark .dot { color: var(--accent); }
+  nav.top .lang { font-size: 14px; color: var(--text-muted); }
+  nav.top .lang a { margin-left: 14px; color: var(--text-soft); border-bottom: 1px dashed var(--text-muted); }
+  nav.top .lang a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Hero ────────────────────────────────────────────── */
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    font-weight: 900;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: 20px;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.12s ease;
+  }
+  .badge.soon { background: rgba(255,255,255,0.10); color: var(--text); cursor: default; }
+  .badge.outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--rule);
+  }
+  .badge.outline:hover { background: var(--rule); transform: translateY(-1px); border-bottom-color: var(--rule); }
+
+  .hero-preview {
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 44px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(255, 255, 255, 0.04);
+  }
+  .hero-preview video { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ── Pitch ───────────────────────────────────────────── */
+  section.pitch {
+    background: var(--bg-soft);
+    padding: 96px 32px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pitch-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+  .pitch h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .pitch p { color: var(--text-soft); font-size: 18px; max-width: 660px; margin: 0 auto 16px; }
+  .pitch em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .pitch .not-list { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .pitch .not-list span {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rule);
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+
+  /* ── Feature grid ────────────────────────────────────── */
+  section.features { max-width: 1180px; margin: 0 auto; padding: 96px 32px; }
+  .feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 96px;
+  }
+  .feature:last-child { margin-bottom: 0; }
+  .feature:nth-child(even) { direction: rtl; }
+  .feature:nth-child(even) > * { direction: ltr; }
+  .feature .shot {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px var(--rule);
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .feature h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .feature p { color: var(--text-soft); font-size: 17px; }
+  .feature .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  /* ── Privacy strip ───────────────────────────────────── */
+  section.privacy { background: var(--bg-deep); padding: 96px 32px; border-top: 1px solid var(--rule); }
+  .privacy-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+  .privacy h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .privacy > .privacy-inner > p { color: var(--text-soft); font-size: 18px; max-width: 600px; margin: 0 auto; }
+  .privacy ul {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    text-align: left;
+  }
+  .privacy li {
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .privacy li b { color: var(--text); display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; font-weight: 700; }
+  .privacy li a { border-bottom-style: dashed; }
+
+  /* ── Footer ──────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 48px 32px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  footer .links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  footer .links a { color: var(--text-soft); border-bottom-color: var(--rule); }
+  footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Responsive ──────────────────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; padding: 32px 24px 64px; gap: 48px; }
+    .hero-preview { margin: 0 auto; }
+    .feature { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
+    .feature:nth-child(even) { direction: ltr; }
+    nav.top { padding: 20px 24px; }
+    section.pitch, section.features, section.privacy { padding: 64px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="../" class="wordmark">rekko<span class="dot">.</span></a>
+  <div class="lang">
+    <a href="../en/" class="active">EN</a>
+    <a href="../fr/">FR</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>What your <span class="accent">circle</span> is watching.</h1>
+    <p class="lede">The private, ad-free way to swap TV and movie recommendations with the people you actually watch with. No public feed. No algorithm. Just your circles.</p>
+    <div class="cta-row">
+      <span class="badge soon">Coming soon to the App Store</span>
+      <a class="badge outline" href="https://github.com/jib63/Rekko-support/issues">Stay in touch</a>
+    </div>
+  </div>
+  <div class="hero-preview">
+    <video autoplay muted loop playsinline poster="../assets/screenshots/en/01-Home.jpg">
+      <source src="../assets/screenshots/en/preview.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="pitch">
+  <div class="pitch-inner">
+    <h2>One small circle. No public feed.</h2>
+    <p>Streaming apps recommend what other people watched. Rekko shows you what <em>your people</em> watched — and what they thought of it.</p>
+    <p>Create a circle for family, one for movie buffs, one for your work crew. Send a series with a one-line note ("Court mais super intense"). They see it in their feed, add it to their list, and the loop closes — the way it would over dinner.</p>
+    <div class="not-list">
+      <span>No public profiles</span>
+      <span>No followers</span>
+      <span>No ads</span>
+      <span>No third-party trackers</span>
+      <span>No algorithm picking your next show</span>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/01-Home.jpg" alt="Home feed showing recommendations and status updates from circle members"></div>
+    <div>
+      <div class="eyebrow">Home</div>
+      <h3>One feed. Only the people you chose.</h3>
+      <p>Every reco, rating and status change from your circles, freshest first. Filter by circle so the office picks don't drown out the family ones, and tap a card to land on the show.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/02-Discover.jpg" alt="Discover view with weekly trending TV and most rated in your circle"></div>
+    <div>
+      <div class="eyebrow">Discover</div>
+      <h3>What's hot, and what your circle keeps coming back to.</h3>
+      <p>Weekly trending TV and movies from TMDB sit next to a "Most rated in your circle" row — the titles your friends rate over and over. Search across titles, year, synopsis, country or director.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/03-MyList.jpg" alt="My list with watched, in progress, to watch, and dropped statuses"></div>
+    <div>
+      <div class="eyebrow">My list</div>
+      <h3>To watch, in progress, watched, dropped.</h3>
+      <p>A four-status journal of everything you're following. Rate watched titles with a quick 0–5 stars and a one-line take. Sort by date added, A→Z or rating. The list is yours.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/04-ShowDetail.jpg" alt="Show detail page for a TV series with status pills and Where to watch button"></div>
+    <div>
+      <div class="eyebrow">Show detail</div>
+      <h3>Recos, ratings, where to watch — on the same page.</h3>
+      <p>Every show fiche stitches together the TMDB synopsis, your circle's recos and ratings, and a "Where to watch" button that hands off to Apple TV — Apple resolves the streamer for you, no per-provider app to install.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/05-Profile.jpg" alt="Profile screen with avatar, stats, and circles list"></div>
+    <div>
+      <div class="eyebrow">Profile</div>
+      <h3>Your circles, your stats, your data.</h3>
+      <p>One screen for your avatar and name, a count of what you've watched / are watching / want to watch, and every circle you're a member of. Settings sit one tap away: export your data (RGPD), delete your account, manage the image cache.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/en/06-CircleDetail.jpg" alt="Circle detail showing members and shared activity"></div>
+    <div>
+      <div class="eyebrow">Circles</div>
+      <h3>Tiny, private, end-to-end.</h3>
+      <p>A circle is a CloudKit share — invitees are gated by iCloud, the data lives in your iCloud account, and there's nothing to host. See members at a glance, compatibility scores based on shared ratings, and the full activity stream for that group.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="privacy">
+  <div class="privacy-inner">
+    <h2>Privacy isn't a section. It's the architecture.</h2>
+    <p>Rekko was built around the idea that what you watch is nobody's business but your circle's. There's no server we operate that stores your shows, your ratings or your recos.</p>
+    <ul>
+      <li><b>Sign in with Apple</b>No email, no phone. Apple handles the identity layer; we never see it.</li>
+      <li><b>iCloud sync</b>Your shows, ratings, circles and recos live in your own iCloud account via CloudKit. We don't.</li>
+      <li><b>App Attest</b>Our TMDB proxy only accepts requests from a legitimate Rekko install on a real Apple device — no scraping, no abuse.</li>
+      <li><b>No third-party trackers</b>No analytics SDKs, no ads, no fingerprinting. We don't even know how many of you opened the app today.</li>
+      <li><b>RGPD-ready</b>One tap exports your full data as JSON. One tap deletes your account permanently — from this device and from iCloud.</li>
+      <li><b>Open about it</b>The <a href="privacy.html">privacy policy</a> describes what's collected (very little) and why (mostly: nothing leaves your device).</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="privacy.html">Privacy policy</a>
+    <a href="https://github.com/jib63/Rekko-support/issues">Support</a>
+    <a href="../fr/">Français</a>
+  </div>
+  <small>© 2026 Jean-Baptiste Meyer</small>
+</footer>
+
+</body>
+</html>

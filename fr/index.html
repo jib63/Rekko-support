@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekko — Ce que ton cercle regarde</title>
+<meta name="description" content="Rekko, c'est la façon privée et sans pub d'échanger des recommandations de séries et de films avec les gens avec qui vous regardez vraiment. Pas de fil public. Pas d'algorithme. Juste vos cercles.">
+<meta name="theme-color" content="#1a1238">
+<meta property="og:title" content="Rekko — Ce que ton cercle regarde">
+<meta property="og:description" content="La façon privée et sans pub d'échanger des recos de séries et de films avec vos amis et votre famille.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../assets/screenshots/fr/01-Home.jpg">
+<link rel="canonical" href="https://jib63.github.io/Rekko-support/fr/">
+<style>
+  :root {
+    --bg: #1a1238;
+    --bg-deep: #0f0824;
+    --bg-soft: #221848;
+    --accent: #9b59ff;
+    --accent-soft: rgba(155, 89, 255, 0.18);
+    --text: #ffffff;
+    --text-soft: rgba(255, 255, 255, 0.72);
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --rule: rgba(255, 255, 255, 0.08);
+    --radius: 18px;
+    --serif: "Iowan Old Style", "Georgia", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+    background-attachment: fixed;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color 0.15s ease; }
+  a:hover { border-bottom-color: var(--accent); }
+  img { max-width: 100%; display: block; }
+
+  nav.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    border: none;
+  }
+  .wordmark .dot { color: var(--accent); }
+  nav.top .lang { font-size: 14px; color: var(--text-muted); }
+  nav.top .lang a { margin-left: 14px; color: var(--text-soft); border-bottom: 1px dashed var(--text-muted); }
+  nav.top .lang a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    font-weight: 900;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: 20px;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.12s ease;
+  }
+  .badge.soon { background: rgba(255,255,255,0.10); color: var(--text); cursor: default; }
+  .badge.outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--rule);
+  }
+  .badge.outline:hover { background: var(--rule); transform: translateY(-1px); border-bottom-color: var(--rule); }
+
+  .hero-preview {
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 44px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(255, 255, 255, 0.04);
+  }
+  .hero-preview video { width: 100%; height: 100%; object-fit: cover; }
+
+  section.pitch {
+    background: var(--bg-soft);
+    padding: 96px 32px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pitch-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+  .pitch h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .pitch p { color: var(--text-soft); font-size: 18px; max-width: 660px; margin: 0 auto 16px; }
+  .pitch em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .pitch .not-list { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .pitch .not-list span {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rule);
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+
+  section.features { max-width: 1180px; margin: 0 auto; padding: 96px 32px; }
+  .feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 96px;
+  }
+  .feature:last-child { margin-bottom: 0; }
+  .feature:nth-child(even) { direction: rtl; }
+  .feature:nth-child(even) > * { direction: ltr; }
+  .feature .shot {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px var(--rule);
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .feature h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .feature p { color: var(--text-soft); font-size: 17px; }
+  .feature .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  section.privacy { background: var(--bg-deep); padding: 96px 32px; border-top: 1px solid var(--rule); }
+  .privacy-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+  .privacy h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .privacy > .privacy-inner > p { color: var(--text-soft); font-size: 18px; max-width: 600px; margin: 0 auto; }
+  .privacy ul {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    text-align: left;
+  }
+  .privacy li {
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .privacy li b { color: var(--text); display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; font-weight: 700; }
+  .privacy li a { border-bottom-style: dashed; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 48px 32px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  footer .links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  footer .links a { color: var(--text-soft); border-bottom-color: var(--rule); }
+  footer .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; padding: 32px 24px 64px; gap: 48px; }
+    .hero-preview { margin: 0 auto; }
+    .feature { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
+    .feature:nth-child(even) { direction: ltr; }
+    nav.top { padding: 20px 24px; }
+    section.pitch, section.features, section.privacy { padding: 64px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="../" class="wordmark">rekko<span class="dot">.</span></a>
+  <div class="lang">
+    <a href="../en/">EN</a>
+    <a href="../fr/" class="active">FR</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Ce que ton <span class="accent">cercle</span> regarde.</h1>
+    <p class="lede">La façon privée et sans pub d'échanger des recommandations de séries et de films avec les gens avec qui vous regardez vraiment. Pas de fil public. Pas d'algorithme. Juste vos cercles.</p>
+    <div class="cta-row">
+      <span class="badge soon">Bientôt sur l'App Store</span>
+      <a class="badge outline" href="https://github.com/jib63/Rekko-support/issues">Restez informé</a>
+    </div>
+  </div>
+  <div class="hero-preview">
+    <video autoplay muted loop playsinline poster="../assets/screenshots/fr/01-Home.jpg">
+      <source src="../assets/screenshots/fr/preview.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="pitch">
+  <div class="pitch-inner">
+    <h2>Un petit cercle. Pas de fil public.</h2>
+    <p>Les apps de streaming vous recommandent ce que les autres ont regardé. Rekko vous montre ce que <em>vos gens</em> ont regardé — et ce qu'ils en ont pensé.</p>
+    <p>Créez un cercle pour la famille, un pour les cinéphiles, un pour les collègues. Envoyez une série avec un mot personnel (« Court mais super intense »). Ils la voient dans leur accueil, l'ajoutent à leur liste, et la boucle est bouclée — comme on le ferait à table.</p>
+    <div class="not-list">
+      <span>Pas de profil public</span>
+      <span>Pas de followers</span>
+      <span>Pas de pub</span>
+      <span>Aucun traceur tiers</span>
+      <span>Aucun algorithme qui choisit votre prochaine série</span>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/01-Home.jpg" alt="Fil d'accueil montrant les recommandations et changements de statut des membres du cercle"></div>
+    <div>
+      <div class="eyebrow">Accueil</div>
+      <h3>Un fil. Que les gens que vous avez choisis.</h3>
+      <p>Chaque reco, note et changement de statut de vos cercles, les plus récents en premier. Filtrez par cercle pour que les discussions du bureau ne noient pas les idées de la soirée en famille, et touchez une carte pour atterrir sur la fiche.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/02-Discover.jpg" alt="Vue Découvrir avec les tendances hebdomadaires et les titres les plus notés dans votre cercle"></div>
+    <div>
+      <div class="eyebrow">Découvrir</div>
+      <h3>Ce qui buzze, et ce sur quoi votre cercle revient.</h3>
+      <p>Les tendances séries et films de la semaine côté TMDB, à côté d'une rangée « Le plus noté dans ton cercle » — les titres que vos amis re-notent encore et encore. Recherche par titre, année, synopsis, pays ou réalisateur.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/03-MyList.jpg" alt="Ma liste avec les statuts vu, en cours, à voir et abandonné"></div>
+    <div>
+      <div class="eyebrow">Ma liste</div>
+      <h3>À voir, en cours, vu, abandonné.</h3>
+      <p>Un journal en quatre statuts de tout ce que vous suivez. Notez ce que vous avez vu, vite, de 0 à 5 étoiles avec une ligne d'avis. Triez par date d'ajout, par titre ou par note. Votre liste vous appartient.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/04-ShowDetail.jpg" alt="Fiche détaillée d'une série avec les pastilles de statut et le bouton Où regarder"></div>
+    <div>
+      <div class="eyebrow">Fiche série</div>
+      <h3>Recos, notes, où regarder — sur la même page.</h3>
+      <p>Chaque fiche assemble le synopsis TMDB, les recos et notes de votre cercle, et un bouton « Où regarder » qui passe le relais à Apple TV — Apple résout le streamer pour vous, sans installer une app par plateforme.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/05-Profile.jpg" alt="Écran profil avec l'avatar, les statistiques et la liste des cercles"></div>
+    <div>
+      <div class="eyebrow">Profil</div>
+      <h3>Vos cercles, vos stats, vos données.</h3>
+      <p>Un seul écran pour votre avatar et votre nom, un compteur de ce que vous avez vu / en cours / à voir, et tous les cercles dont vous êtes membre. Les réglages sont à un tap : exportez vos données (RGPD), supprimez votre compte, gérez le cache d'images.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="shot"><img src="../assets/screenshots/fr/06-CircleDetail.jpg" alt="Vue détaillée d'un cercle avec les membres et l'activité partagée"></div>
+    <div>
+      <div class="eyebrow">Cercles</div>
+      <h3>Petits, privés, de bout en bout.</h3>
+      <p>Un cercle, c'est un partage CloudKit — les invités sont contrôlés par iCloud, les données vivent dans votre compte iCloud, et il n'y a rien à héberger. Voyez les membres d'un coup d'œil, les scores de compatibilité fondés sur les notes partagées, et tout le flux d'activité du groupe.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="privacy">
+  <div class="privacy-inner">
+    <h2>La confidentialité n'est pas une section. C'est l'architecture.</h2>
+    <p>Rekko a été pensé autour de l'idée que ce que vous regardez ne regarde que votre cercle. Aucun serveur que nous opérons ne stocke vos séries, vos notes ni vos recos.</p>
+    <ul>
+      <li><b>Connexion avec Apple</b>Pas d'e-mail, pas de téléphone. Apple gère l'identité ; nous ne la voyons jamais.</li>
+      <li><b>Synchro iCloud</b>Vos séries, notes, cercles et recos vivent dans votre propre compte iCloud via CloudKit. Pas chez nous.</li>
+      <li><b>App Attest</b>Notre proxy TMDB n'accepte que les requêtes d'une vraie installation Rekko sur un appareil Apple — pas de scraping, pas d'abus.</li>
+      <li><b>Aucun traceur tiers</b>Aucun SDK d'analytics, aucune pub, aucun fingerprinting. On ne sait même pas combien d'entre vous ont ouvert l'app aujourd'hui.</li>
+      <li><b>Prêt RGPD</b>Un tap exporte toutes vos données en JSON. Un tap supprime votre compte définitivement — sur cet appareil et dans iCloud.</li>
+      <li><b>Transparent</b>La <a href="privacy.html">politique de confidentialité</a> décrit ce qui est collecté (très peu) et pourquoi (en gros : rien ne quitte votre appareil).</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="privacy.html">Politique de confidentialité</a>
+    <a href="https://github.com/jib63/Rekko-support/issues">Support</a>
+    <a href="../en/">English</a>
+  </div>
+  <small>© 2026 Jean-Baptiste Meyer</small>
+</footer>
+
+</body>
+</html>
