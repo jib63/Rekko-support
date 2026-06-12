@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Politique de confidentialité de l'app Rekko sur Apple TV — quelles données la surface salon manipule, où elles vont, et comment vous pouvez les contrôler ou les supprimer.">
+    <title>Politique de confidentialité (Apple TV) — Rekko</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="wordmark">rekko<span class="dot">.</span></a>
+        <p class="lang-switch">Français · <a href="../en/privacy-appletv.html">Read in English</a></p>
+
+        <h1>Politique de confidentialité — Apple TV</h1>
+        <p class="subtitle">Dernière mise à jour : 12 juin 2026</p>
+
+        <p>
+            Cette page décrit comment l'app <strong>Rekko sur Apple TV</strong> traite
+            vos données. C'est un complément à la
+            <a href="privacy.html">politique principale</a> qui couvre les versions
+            iPhone et iPad ; les deux partagent la même architecture, mais la surface
+            Apple TV est volontairement plus restreinte et quelques spécificités
+            diffèrent. Lorsque cette page est silencieuse, la politique principale
+            s'applique.
+        </p>
+
+        <hr>
+
+        <h2>1. Qui est responsable de vos données ?</h2>
+        <p>
+            Rekko est développé et opéré par Jean-Baptiste Meyer (« nous »), en
+            qualité de responsable de traitement au sens du Règlement général sur la
+            protection des données (RGPD). Toute question relative à cette politique
+            peut être envoyée à
+            <a href="mailto:jib@jibstudios.com">jib@jibstudios.com</a>.
+        </p>
+
+        <h2>2. Quelles données l'app Apple TV manipule</h2>
+        <p>
+            Rekko sur Apple TV est un compagnon <em>salon, en lecture principalement</em>
+            de l'app iPhone. Il affiche ce qui existe déjà dans vos données iCloud
+            Rekko ; il ne crée pas de nouvelles catégories de données personnelles de
+            lui-même. Concrètement, il manipule :
+        </p>
+        <ul>
+            <li>
+                <strong>Identifiant de connexion.</strong> Lorsque vous vous connectez
+                avec <em>Sign in with Apple</em> sur Apple TV, Apple fournit à Rekko
+                un <code>userIdentifier</code> stable et opaque. Nous ne stockons
+                <strong>pas</strong> votre véritable identifiant Apple, votre nom ni
+                votre adresse e-mail. L'e-mail qu'Apple propose de partager est
+                volontairement écarté. L'identifiant est conservé dans le trousseau
+                local de l'Apple TV.
+            </li>
+            <li>
+                <strong>Votre profil, votre journal et vos cercles — lus depuis
+                iCloud.</strong> Pseudo, miniature d'avatar, séries suivies et leurs
+                statuts de visionnage, notes, appartenance à des cercles et
+                recommandations des amis sont lus depuis vos zones iCloud Rekko
+                existantes (voir §3). L'app Apple TV ne permet <strong>pas</strong>
+                de modifier votre profil, votre avatar, vos genres préférés, vos notes
+                ni les membres de vos cercles — ces surfaces restent sur iPhone.
+                Apple TV est en lecture seule pour les données personnelles ; seul
+                le <em>statut de suivi</em> d'une série peut être basculé depuis la
+                fiche.
+            </li>
+            <li>
+                <strong>Attestation anonyme du dispositif.</strong> Rekko utilise le
+                framework <em>App Attest</em> d'Apple pour prouver que les requêtes
+                vers son relais en lecture seule proviennent d'une copie légitime de
+                l'app. App Attest n'expose aucune information personnelle.
+            </li>
+        </ul>
+        <p>
+            Rekko sur Apple TV ne collecte <strong>pas</strong> : vos contacts, votre
+            localisation, votre micro, votre identifiant publicitaire, ni aucun
+            traceur d'analytics tiers. Il n'y a aucun SDK de tracking embarqué.
+        </p>
+
+        <h2>3. Où vos données sont stockées</h2>
+        <p>
+            Même architecture que sur iPhone : les données personnelles sont stockées
+            dans <strong>votre propre espace iCloud privé</strong>, via le framework
+            CloudKit d'Apple. L'app Apple TV lit les mêmes zones iCloud Rekko que
+            l'app iPhone écrit.
+        </p>
+        <ul>
+            <li>
+                Votre profil, votre journal et les cercles dont vous êtes
+                propriétaire vivent dans votre <em>iCloud Private Database</em>,
+                accessible uniquement par votre identifiant Apple.
+            </li>
+            <li>
+                Les cercles partagés utilisent le mécanisme <em>CKShare</em>
+                d'Apple : les données sont répliquées uniquement vers les comptes
+                iCloud que vous avez explicitement invités. Apple TV lit ces zones
+                partagées via le même mécanisme que l'iPhone.
+            </li>
+            <li>
+                Un relais en lecture seule que nous opérons signe sécuritairement
+                les requêtes vers TMDB (voir §4). Il ne stocke aucune de vos données
+                et ne consigne que des traces techniques éphémères, à des fins de
+                prévention des abus.
+            </li>
+        </ul>
+
+        <h2>4. Tiers impliqués</h2>
+        <ul>
+            <li>
+                <strong>Apple Inc.</strong> traite vos données iCloud sur ses serveurs,
+                selon la
+                <a href="https://www.apple.com/legal/privacy/">politique de
+                confidentialité d'Apple</a>. L'infrastructure CloudKit qui héberge
+                vos cercles, votre profil et votre journal est celle d'Apple, pas la
+                nôtre.
+            </li>
+            <li>
+                <strong>The Movie Database (TMDB).</strong> Rekko récupère les
+                métadonnées des séries (titres, affiches, synopsis, épisodes, notes)
+                depuis <a href="https://www.themoviedb.org/">TMDB</a>. La requête TMDB
+                ne contient que l'identifiant de la série consultée ; aucun
+                identifiant personnel Rekko n'est envoyé. TMDB est la source du
+                catalogue et n'est pas affilié à Rekko.
+            </li>
+            <li>
+                <strong>L'app Apple TV (intégrée).</strong> Lorsque vous tapez
+                « Où regarder », Rekko ouvre l'app Apple TV système sur une URL de
+                recherche contenant uniquement le titre de la série. Rekko ne voit
+                pas vers quel service de streaming l'app Apple TV vous renvoie
+                ensuite, et n'enregistre pas le passage de relais.
+            </li>
+        </ul>
+
+        <h2>5. Autorisations que l'app Apple TV peut demander</h2>
+        <ul>
+            <li>
+                <strong>iCloud.</strong> Requis : sans compte iCloud connecté sur
+                l'Apple TV, l'app ne peut pas lire vos données ni honorer les
+                invitations à des cercles. C'est exactement la même exigence que sur
+                iPhone.
+            </li>
+            <li>
+                <strong>Sign in with Apple.</strong> Requis pour lier l'appareil à
+                votre profil Rekko.
+            </li>
+        </ul>
+        <p>
+            L'app Apple TV ne demande <strong>pas</strong> l'accès à : Photos,
+            Notifications, Contacts, Localisation, Micro, Caméra, Bluetooth, ni
+            aucun autre capteur. Le choix de la photo de profil, les notifications
+            push et le sélecteur Photos vivent exclusivement sur iPhone.
+        </p>
+
+        <h2>6. Ce que l'app Apple TV ne fait PAS</h2>
+        <p>
+            Pour expliciter la nature en lecture seule :
+        </p>
+        <ul>
+            <li>
+                <strong>Aucun achat sur Apple TV.</strong> Le Pacte Fondateurs et
+                l'abonnement Premium ne peuvent pas être achetés depuis l'app Apple
+                TV. Pour soutenir Rekko ou passer Premium, faites-le depuis l'iPhone.
+                L'app Apple TV ne fait que <em>lire</em> l'état des entitlements
+                établis sur iPhone (par exemple pour afficher l'anneau doré autour
+                de votre avatar Fondateur).
+            </li>
+            <li>
+                <strong>Aucune notification sur Apple TV.</strong> Les rappels de
+                diffusion et les notifications d'activité des cercles sont une
+                fonctionnalité exclusivement iPhone.
+            </li>
+            <li>
+                <strong>Aucune édition de profil sur Apple TV.</strong> Pseudo,
+                avatar et genres préférés se règlent tous sur iPhone.
+            </li>
+            <li>
+                <strong>Aucun film.</strong> Par décision produit, l'app Apple TV est
+                exclusivement réservée aux séries — vos films suivis sur iPhone
+                n'apparaissent pas, et vous ne pouvez pas suivre de nouveau film
+                depuis Apple TV.
+            </li>
+        </ul>
+
+        <h2>7. Base légale</h2>
+        <p>
+            Tout traitement de données personnelles repose sur votre
+            <strong>consentement</strong> (RGPD art. 6(1)(a)) — donné lors de la
+            connexion sur Apple TV — et sur l'<strong>exécution d'un contrat</strong>
+            (art. 6(1)(b)) pour les fonctionnalités que vous demandez activement
+            (ouvrir le détail d'un cercle, basculer le statut de suivi d'une série).
+        </p>
+
+        <h2>8. Durée de conservation</h2>
+        <p>
+            Aussi longtemps que votre compte existe. La suppression de votre compte
+            depuis l'app iPhone Rekko efface vos données CloudKit ; l'app Apple TV
+            n'a alors plus rien à lire et le signet disparaît. Depuis l'app Apple TV
+            elle-même, vous pouvez vous <strong>déconnecter</strong> via Réglages,
+            ce qui efface l'identifiant de connexion du trousseau local de
+            l'Apple TV — vos données dans iCloud restent intactes, ce qui vous
+            permet de vous reconnecter depuis n'importe quel appareil et de retrouver
+            l'endroit où vous vous êtes arrêté.
+        </p>
+        <p>
+            Une suppression complète du compte (et l'effacement CloudKit + la
+            révocation d'App Attest associés) est la même opération sur les deux
+            surfaces et peut être déclenchée depuis l'une comme l'autre : iPhone
+            <em>Réglages → Supprimer mon compte</em>, ou Apple TV
+            <em>Réglages → Supprimer toutes les données</em>.
+        </p>
+
+        <h2>9. Vos droits RGPD</h2>
+        <p>
+            Vos droits sont identiques à ceux de la surface iPhone — voir
+            <a href="privacy.html#section-7">§7 de la politique principale</a> pour
+            la liste complète (accès, portabilité, rectification, effacement,
+            opposition, retrait du consentement, réclamation auprès de la CNIL).
+            Un détail d'implémentation : l'action « Exporter mes données » n'existe
+            que sur iPhone, parce que c'est de là que sort le fichier. Déclenchée sur
+            iPhone, elle produit un fichier JSON couvrant toutes les surfaces Rekko,
+            y compris tout ce que l'app Apple TV serait susceptible de vous montrer.
+        </p>
+
+        <h2>10. Enfants</h2>
+        <p>
+            Rekko ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons
+            sciemment aucune donnée d'enfant. Si vous pensez qu'un enfant s'est
+            inscrit, contactez-nous et nous supprimerons le compte correspondant.
+        </p>
+
+        <h2>11. Modifications de cette politique</h2>
+        <p>
+            Cette politique peut être mise à jour lorsque l'app ou la législation
+            applicable évoluent. Nous actualiserons la date « Dernière mise à jour »
+            en haut de page, et tout changement significatif sera signalé in-app à
+            la prochaine ouverture des Réglages sur iPhone ou sur Apple TV.
+        </p>
+
+        <footer>
+            <p>
+                <a href="../">Retour à Rekko</a> ·
+                <a href="privacy.html">Politique iPhone &amp; iPad</a> ·
+                <a href="../en/privacy-appletv.html">Read in English</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
