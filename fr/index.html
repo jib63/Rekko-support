@@ -189,6 +189,69 @@
     margin-bottom: 12px;
   }
 
+  /* Apple TV strip */
+  section.tv {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    padding: 96px 32px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .tv-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .tv-inner h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .tv-inner > div > p { color: var(--text-soft); font-size: 18px; max-width: 540px; margin-bottom: 28px; }
+  .tv-inner .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+  .tv-inner ul { list-style: none; padding: 0; display: grid; gap: 14px; }
+  .tv-inner li {
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .tv-inner li b {
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tv-preview {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.04);
+    margin-left: auto;
+  }
+  .tv-preview video, .tv-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
   section.privacy { background: var(--bg-deep); padding: 96px 32px; border-top: 1px solid var(--rule); }
   .privacy-inner { max-width: 880px; margin: 0 auto; text-align: center; }
   .privacy h2 {
@@ -237,7 +300,9 @@
     .feature { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
     .feature:nth-child(even) { direction: ltr; }
     nav.top { padding: 20px 24px; }
-    section.pitch, section.features, section.privacy { padding: 64px 24px; }
+    section.pitch, section.features, section.privacy, section.tv { padding: 64px 24px; }
+    .tv-inner { grid-template-columns: 1fr; gap: 32px; }
+    .tv-preview { margin: 0 auto; }
   }
 </style>
 </head>
@@ -261,7 +326,7 @@
     <h1>Ce que ton <span class="accent">cercle</span> regarde.</h1>
     <p class="lede">La façon privée et sans pub d'échanger des recommandations de séries et de films avec les gens avec qui vous regardez vraiment. Pas de fil public. Pas d'algorithme. Juste vos cercles.</p>
     <div class="cta-row">
-      <span class="badge soon">Bientôt sur l'App Store</span>
+      <span class="badge soon">Bientôt — iPhone, iPad et Apple TV</span>
       <a class="badge outline" href="https://github.com/jib63/Rekko-support/issues">Restez informé</a>
     </div>
   </div>
@@ -343,6 +408,27 @@
     </div>
   </div>
 
+</section>
+
+<section class="tv">
+  <div class="tv-inner">
+    <div>
+      <div class="eyebrow">Maintenant sur Apple TV</div>
+      <h2>Confortablement installé. Même cercle. Plus grand écran.</h2>
+      <p>Ouvrez Rekko sur Apple TV et votre accueil, votre liste et ce que vos proches regardent descendent directement depuis iCloud. Connectez-vous une fois sur l'iPhone — le boîtier prend le relais tout seul.</p>
+      <ul>
+        <li><b>Synchro depuis l'iPhone</b>Profil, cercles, séries suivies et recos des amis arrivent toutes seules. Pas de seconde connexion à se battre avec la télécommande.</li>
+        <li><b>Pensé pour la Siri Remote</b>Focus engine natif : grilles d'affiches sur quatre colonnes, zones de focus généreuses, lisibilité à trois mètres partout.</li>
+        <li><b>Où regarder — directement</b>Sélectionnez une série, tapez « Où regarder », et l'app Apple TV s'ouvre exactement sur la plateforme qui la diffuse.</li>
+        <li><b>Séries uniquement</b>Apple TV, c'est la surface du bingewatching. Les films restent sur iPhone, où il est plus naturel de les suivre.</li>
+      </ul>
+    </div>
+    <div class="tv-preview">
+      <video autoplay muted loop playsinline poster="../assets/screenshots/fr/tv/01-Home.jpg">
+        <source src="../assets/screenshots/fr/tv/preview.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </section>
 
 <section class="privacy">

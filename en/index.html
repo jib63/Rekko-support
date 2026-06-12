@@ -193,6 +193,69 @@
     margin-bottom: 12px;
   }
 
+  /* ── Apple TV strip ──────────────────────────────────── */
+  section.tv {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    padding: 96px 32px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .tv-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .tv-inner h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .tv-inner > div > p { color: var(--text-soft); font-size: 18px; max-width: 540px; margin-bottom: 28px; }
+  .tv-inner .eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+  .tv-inner ul { list-style: none; padding: 0; display: grid; gap: 14px; }
+  .tv-inner li {
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .tv-inner li b {
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tv-preview {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.04);
+    margin-left: auto;
+  }
+  .tv-preview video, .tv-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
   /* ── Privacy strip ───────────────────────────────────── */
   section.privacy { background: var(--bg-deep); padding: 96px 32px; border-top: 1px solid var(--rule); }
   .privacy-inner { max-width: 880px; margin: 0 auto; text-align: center; }
@@ -244,7 +307,9 @@
     .feature { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
     .feature:nth-child(even) { direction: ltr; }
     nav.top { padding: 20px 24px; }
-    section.pitch, section.features, section.privacy { padding: 64px 24px; }
+    section.pitch, section.features, section.privacy, section.tv { padding: 64px 24px; }
+    .tv-inner { grid-template-columns: 1fr; gap: 32px; }
+    .tv-preview { margin: 0 auto; }
   }
 </style>
 </head>
@@ -268,7 +333,7 @@
     <h1>What your <span class="accent">circle</span> is watching.</h1>
     <p class="lede">The private, ad-free way to swap TV and movie recommendations with the people you actually watch with. No public feed. No algorithm. Just your circles.</p>
     <div class="cta-row">
-      <span class="badge soon">Coming soon to the App Store</span>
+      <span class="badge soon">Coming soon — iPhone, iPad &amp; Apple TV</span>
       <a class="badge outline" href="https://github.com/jib63/Rekko-support/issues">Stay in touch</a>
     </div>
   </div>
@@ -350,6 +415,27 @@
     </div>
   </div>
 
+</section>
+
+<section class="tv">
+  <div class="tv-inner">
+    <div>
+      <div class="eyebrow">Now on Apple TV</div>
+      <h2>Lean back. Same circle. Bigger screen.</h2>
+      <p>Open Rekko on Apple TV and your home grid, your list and what your circle is watching come straight down from iCloud. Sign in once on iPhone — the box picks up the rest on its own.</p>
+      <ul>
+        <li><b>Sync from iPhone</b>Profile, circles, tracked series and friends' recos arrive automatically. No second sign-in to fight with a remote.</li>
+        <li><b>Siri Remote-friendly</b>Focus-engine native: four-column poster grids, oversized tap targets, 10-foot legibility on every surface.</li>
+        <li><b>Where to watch — built in</b>Pick a series, tap "Where to watch", and the Apple TV app opens straight on the streamer that's playing it.</li>
+        <li><b>Series-only by design</b>Apple TV is the lean-back binge surface. Movies stay on iPhone, where it makes more sense to track them.</li>
+      </ul>
+    </div>
+    <div class="tv-preview">
+      <video autoplay muted loop playsinline poster="../assets/screenshots/en/tv/01-Home.jpg">
+        <source src="../assets/screenshots/en/tv/preview.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </section>
 
 <section class="privacy">
