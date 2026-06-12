@@ -63,6 +63,13 @@
   nav.top .lang { font-size: 14px; color: var(--text-muted); }
   nav.top .lang a { margin-left: 14px; color: var(--text-soft); border-bottom: 1px dashed var(--text-muted); }
   nav.top .lang a.active { color: var(--accent); border-bottom-color: var(--accent); }
+  nav.top .nav-links { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+  nav.top .nav-links a { color: var(--text-soft); border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  nav.top .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 720px) {
+    nav.top { flex-wrap: wrap; gap: 12px; }
+    nav.top .nav-links { order: 3; width: 100%; justify-content: flex-start; gap: 16px; font-size: 14px; }
+  }
 
   .hero {
     max-width: 1180px;
@@ -238,6 +245,11 @@
 
 <nav class="top">
   <a href="../" class="wordmark">rekko<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="pricing.html">Tarifs</a>
+    <a href="founders-pact.html">Pacte Fondateurs</a>
+    <a href="privacy.html">Confidentialité</a>
+  </div>
   <div class="lang">
     <a href="../en/">EN</a>
     <a href="../fr/" class="active">FR</a>
@@ -350,6 +362,8 @@
 
 <footer>
   <div class="links">
+    <a href="pricing.html">Tarifs</a>
+    <a href="founders-pact.html">Pacte Fondateurs</a>
     <a href="privacy.html">Politique de confidentialité</a>
     <a href="https://github.com/jib63/Rekko-support/issues">Support</a>
     <a href="../en/">English</a>
